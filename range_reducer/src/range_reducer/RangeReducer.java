@@ -10,16 +10,13 @@ import java.util.List;
  */
 public class RangeReducer {
 
-	//actual range list
-	private List<ZipRange> rangeList;
-	
 	//filtered range list
 	List<ZipRange> filteredRangeList = new ArrayList<ZipRange>();
 	
 	//current Range from the filteredRangeList
 	ZipRange currRange = new ZipRange() ;
 	
-	public List<ZipRange> filterRanges(){
+	public List<ZipRange> filterRanges(List<ZipRange> rangeList){
 		
 		//if filteredRange is empty add the first element from the 
 		//rangeList to filteredRangeList
@@ -56,13 +53,5 @@ public class RangeReducer {
 		return filteredRangeList;
 	}
 	
-
-	public List<ZipRange> getRangeList() {
-		return rangeList;
-	}
-
-	public void setRangeList(List<ZipRange> rangeList) {
-		this.rangeList = rangeList;
-	}
 	
 }

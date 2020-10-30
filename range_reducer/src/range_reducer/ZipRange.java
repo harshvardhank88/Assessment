@@ -20,7 +20,7 @@ public class ZipRange {
 		
 	@Override
 	public String toString() {
-		return this.lowerBound + ", "+ this.upperBound;
+		return this.lowerBound + ","+ this.upperBound;
 	}
 	
 }

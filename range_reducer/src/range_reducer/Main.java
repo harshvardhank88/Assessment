@@ -36,7 +36,7 @@ public class Main {
 		}
 	}
 	
-	public void startProcess(String inputString) throws Exception {
+	public String startProcess(String inputString) throws Exception {
 		
 		validateInput(inputString);
 		
@@ -56,14 +56,33 @@ public class Main {
 
 		//Add Ranges to the list
 		RangeReducer rr = new RangeReducer();
-		rr.setRangeList(list);
 		
 		//Filter Ranges
-		List<ZipRange> filteredRanges = rr.filterRanges();
+		List<ZipRange> filteredRanges = rr.filterRanges(list);
 		
 		//Print the filtered output
-		System.out.print("Output : ");
-		filteredRanges.forEach(s -> System.out.print(s+ " | "));
+		System.out.print("Output : ");	
+		
+		String outputString = formatOutput(filteredRanges);		
+		
+		System.out.println(outputString);
+		
+		return outputString;
+	}
+	
+	
+	public String formatOutput(List<ZipRange> filteredRanges){
+		StringBuffer outputString = new StringBuffer("");
+		for(int i=0; i<filteredRanges.size();i++) {
+			outputString.append("[");
+			outputString.append(filteredRanges.get(i).toString());
+			outputString.append("]");
+			if(i<filteredRanges.size()-1) {
+				outputString.append(" ");
+			}
+		
+		}
+		return outputString.toString();
 	}
 	
 	
