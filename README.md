@@ -15,3 +15,4 @@ Exception Handling - On Errorenous situation Main class throws an exception
 Running the JAR file
 
 C:\Users\harsh>java -jar C:\Users\harsh\Desktop\range_reducer.jar
+
