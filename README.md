@@ -8,7 +8,7 @@ Given a collection of 5-digit ZIP code ranges (each range includes both their up
 
 Input format - [lowerBound, upperBound] [lowerBound, upperBound] 
 
-Exception Handling - On Errorenous situation Main class throws an exception
+Exception Handling - On Errorenous situation Main class throws an IncorrectInputFormatException
 
 Running the JAR file :  jar C:\Users\harsh\Desktop\range_reducer.jar
 
