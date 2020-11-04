@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws IncorrectInputFormatException {
 		
 		System.out.println("Enter Input String : ");
 		
@@ -29,14 +29,9 @@ public class Main {
 		
 	}
 
+
 	
-	private void validateInput(String inputString) throws Exception{
-		if(inputString.isEmpty()) {
-			throw new Exception("Input cannot be empty");
-		}
-	}
-	
-	public String startProcess(String inputString) throws Exception {
+	public String startProcess(String inputString) throws IncorrectInputFormatException {
 		
 		validateInput(inputString);
 		
@@ -55,10 +50,10 @@ public class Main {
 		}
 
 		//Add Ranges to the list
-		RangeReducer rr = new RangeReducer();
+		ZipcodeUtils ziputil = new ZipcodeUtils();
 		
 		//Filter Ranges
-		List<ZipRange> filteredRanges = rr.filterRanges(list);
+		List<ZipRange> filteredRanges = ziputil.filterRanges(list);
 		
 		//Print the filtered output
 		System.out.print("Output : ");	
@@ -69,6 +64,15 @@ public class Main {
 		
 		return outputString;
 	}
+	
+	
+	
+	private void validateInput(String inputString) throws IncorrectInputFormatException{
+		if(inputString.isEmpty()) {
+			throw new IncorrectInputFormatException("Input cannot be empty");
+		}
+	}
+	
 	
 	
 	public String formatOutput(List<ZipRange> filteredRanges){

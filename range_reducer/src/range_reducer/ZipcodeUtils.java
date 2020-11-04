@@ -8,7 +8,7 @@ import java.util.List;
  *
  *	Helper class to perform Zipcode range reducing process
  */
-public class RangeReducer {
+public class ZipcodeUtils {
 
 	//filtered range list
 	List<ZipRange> filteredRangeList = new ArrayList<ZipRange>();

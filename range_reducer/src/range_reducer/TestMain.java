@@ -1,6 +1,7 @@
 package range_reducer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
@@ -9,9 +10,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class TestMain {
-
+	
 	@Test
-	public void teststartProcess() {
+	public void teststartProcess_withInput1() {
 		String inputString1 = "[94133,94133] [94200,94299] [94600,94699]";
 		String expectedOutput1 = "[94133,94133] [94200,94299] [94600,94699]";
 		Main main = new Main();
@@ -22,14 +23,35 @@ public class TestMain {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	@Test
+	public void teststartProcess_withInput2() {
 		String inputString2 = "[94133,94133] [94200,94299] [94226,94399]";
 		String expectedOutput2 = "[94133,94133] [94200,94399]";
+		Main main = new Main();
 		try {
 			assertEquals(expectedOutput2,main.startProcess(inputString2));
 		} catch (Exception e) {
 			fail("Test Case Failed ");
 			e.printStackTrace();
 		}
+		
+	}
+	
+	@Test
+	public void teststartProcess_withEmptyInput() {
+		String inputString = "";
+		Main main = new Main();
+		assertThrows(IncorrectInputFormatException.class, () -> main.startProcess(inputString));
+		
+	}
+	
+	@Test
+	public void teststartProcess_withInvalidInput() {
+		String inputString = "sd";
+		Main main = new Main();
+		assertThrows(Exception.class, () -> main.startProcess(inputString));
 		
 	}
 	

@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-public class TestRangeReducer {
+public class TestZipCodeUtils {
 
 	@Test
 	public void testfilterRanges() {
@@ -28,8 +28,8 @@ public class TestRangeReducer {
 		rangeList.add(r2);
 		rangeList.add(r3);
 		
-		RangeReducer rr = new RangeReducer();
-		List<ZipRange> filteredList = rr.filterRanges(rangeList);
+		ZipcodeUtils ziputil = new ZipcodeUtils();
+		List<ZipRange> filteredList = ziputil.filterRanges(rangeList);
 		
 		assertEquals(2, filteredList.size());
 		
